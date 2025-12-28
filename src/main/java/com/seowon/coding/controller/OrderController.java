@@ -67,4 +67,10 @@ public class OrderController {
      * }
      */
     //
+    @PostMapping
+    public ResponseEntity<Order> placeOrder(@RequestBody OrderRequestDto requestDto){
+        Order order = orderService.placeOrder(requestDto);
+        return ResponseEntity.status(HttpStatus.CREATED).body(order);
+    	
+    }
 }
